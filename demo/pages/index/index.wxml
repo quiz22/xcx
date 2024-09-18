@@ -7,8 +7,9 @@
           <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
         </button>
 
-        <text>未知</text>
-        <button bindtap="sayHello">获取个人信息</button>
+        <text>{{userInfo.nickName}}</text>
+        <button wx:if="{{!isLogin}}" bindtap="getMyInfo">获取个人信息</button>
+        <button wx:else bindtap="logout">退出登录</button>
       </block>
       <block wx:elif="{{!hasUserInfo}}">
         <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>

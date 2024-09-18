@@ -8,6 +8,7 @@ Page({
       avatarUrl: defaultAvatarUrl,
       nickName: '',
     },
+    isLogin:false,
     hasUserInfo: false,
     canIUseGetUserProfile: wx.canIUse('getUserProfile'),
     canIUseNicknameComp: wx.canIUse('input.type.nickname'),
@@ -46,10 +47,26 @@ Page({
       }
     })
   },
-  sayHello:function(){
-    wx.showToast({
-      title: '你好',
-      duration:5000
+  getMyInfo:function(){
+    wx.getUserProfile({
+      desc: '获取账号',
+      success: (res) => {
+        console.log(res)
+        this.setData({
+          userInfo: res.userInfo,
+          isLogin: true,
+        })
+        console.log(res);
+      }
+    })
+  },
+  logout:function(){
+    this.setData({
+      userInfo:{
+        avatarUrl: defaultAvatarUrl,
+        nickName: ''
+      },
+      isLogin: false,
     })
   }
 })
