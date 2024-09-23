@@ -6,24 +6,22 @@
         <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
           <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
         </button>
-        <text>{{userInfo.nickName}}</text>
-        <text>{{userInfo.language}}</text>
-        <button wx:if="{{!isLogin}}" bindtap="getInfo">获取个人信息</button>
-        <block wx:else>
-          <text>{{userInfo.gender === 0 ? '未知' : userInfo.gender === 1 ? '男' : '女' }}</text>
-          <button bindtap="logout">退出登录</button>
-        </block>
+        <view class="nickname-wrapper">
+          <text class="nickname-label">昵称</text>
+          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
+        </view>
       </block>
-      
       <block wx:elif="{{!hasUserInfo}}">
-        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取个人信息 </button>
+        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
         <view wx:else> 请使用2.10.4及以上版本基础库 </view>
       </block>
       <block wx:else>
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-        
       </block>
+    </view>
+    <view class="usermotto">
+      <text class="user-motto">{{motto}}</text>
     </view>
   </view>
 </scroll-view>

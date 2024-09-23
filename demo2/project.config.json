@@ -1,6 +1,6 @@
 {
   "compileType": "miniprogram",
-  "libVersion": "2.24.7",
+  "libVersion": "trial",
   "packOptions": {
     "ignore": [],
     "include": []
@@ -45,8 +45,6 @@
     "tabSize": 2
   },
   "appid": "wx1e27d8c84422829d",
-  "projectname": "demo",
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
+  "projectname": "%E6%8B%A8%E5%8F%B7",
   "condition": {}
 }
